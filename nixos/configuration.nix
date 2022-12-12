@@ -73,7 +73,17 @@
   services.xserver.layout = "us";
   # touchpad
   services.xserver.libinput.enable = true;
+  
+  # Fingerprint reader
+  services.fprintd.enable = true;
 
+  # Quick start the service. no wait
+  systemd.services.fprintd = {
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig.Type = "simple";
+  };
+
+  #security.pam.services.<name>.fprintAuth
 
 
 
