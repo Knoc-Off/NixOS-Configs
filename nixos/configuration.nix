@@ -54,20 +54,15 @@
   };
 
   # Add the rest of your current configuration
-  
   time.timeZone = "Europe/Berlin";
 
   i18n.defaultLocale = "en_US.UTF-8";
 
-
   services.xserver.enable = true;
-
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
-
-
 
   # Configure keymap in X11
   services.xserver.layout = "us";
@@ -85,18 +80,12 @@
 
   #security.pam.services.<name>.fprintAuth
 
-
-
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     curl
     git
   ];
-
-
-
-
 
   # ~~~~~~~~~~~~~~~~~~~~~~~~~
 
