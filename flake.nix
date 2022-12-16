@@ -4,7 +4,7 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-22.11";
-    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
@@ -12,11 +12,9 @@
     };
     #nur.url = github:nix-community/NUR;
 
-    # sops-nix
-    sops-nix = {
-      url = "github:mic92/sops-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    sops-nix.url = github:Mic92/sops-nix;
+
+
     # Nixified software I use
     # hyprland.url = "github:hyprwm/hyprland/v0.17.0beta";
     # hyprwm-contrib.url = "github:hyprwm/contrib";
@@ -33,16 +31,25 @@
     # nix-colors.url = "github:misterio77/nix-colors";
   };
 
-  outputs = { self, nixpkgs, nur, home-manager, nixos-hardware, ... }@inputs: {
+  outputs = { self, nixpkgs, nur, sops-nix, home-manager, nixos-hardware, ... }@inputs: {
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
       niko = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; }; # Pass flake inputs to our config
         # > Our main nixos configuration file <
-        modules = [ 
+        modules = 
+	#let
+	#  nur-modules = import nur {
+        #    nurpkgs = nixpkgs.legacyPackages.x86_64-linux;
+	#    pkgs = nixpkgs.legacyPackages.x86_64-linux;
+	#  };
+	#in
+	[ 
           ./nixos/configuration.nix
           nixos-hardware.nixosModules.lenovo-thinkpad-x1-6th-gen
+	  #nur.nixosModules.nur
+	  sops-nix.nixosModules.sops
         ];
       };
     };

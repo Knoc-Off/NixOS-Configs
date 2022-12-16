@@ -1,0 +1,4 @@
+wg*.nix
+.direnv
+result*
+*.qcow2

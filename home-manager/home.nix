@@ -28,7 +28,7 @@
       # Disable if you don't want unfree packages
       allowUnfree = true;
       # Workaround for https://github.com/nix-community/home-manager/issues/2942
-      allowUnfreePredicate = (_: true);
+      allowUnfreePredicate = (pkg: true);
     };
   };
 
@@ -40,7 +40,7 @@
 
   # Add stuff for your user as you see fit:
   programs.neovim.enable = true;
-  home.packages = with pkgs; [ ];
+  home.packages = with pkgs; [ xorg.xf86inputsynaptics ];
 
   # Enable home-manager and git
   programs.home-manager.enable = true;

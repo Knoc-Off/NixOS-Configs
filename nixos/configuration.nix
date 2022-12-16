@@ -11,6 +11,7 @@
     # You can also split up your configuration and import pieces of it here:
     # ./users.nix
 
+    ./wireguard/wg-DE-SC.nix
     ./boot.nix
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
@@ -70,13 +71,14 @@
   services.xserver.libinput.enable = true;
   
   # Fingerprint reader
-  services.fprintd.enable = true;
+  #services.fprintd.enable = true;
 
   # Quick start the service. no wait
-  systemd.services.fprintd = {
-    wantedBy = [ "multi-user.target" ];
-    serviceConfig.Type = "simple";
-  };
+  #systemd.services.fprintd = {
+  #  wantedBy = [ "multi-user.target" ];
+  #  serviceConfig.Type = "simple";
+  #};
+  services.logind.lidSwitch = "suspend-then-hibernate";
 
   #security.pam.services.<name>.fprintAuth
 
