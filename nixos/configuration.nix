@@ -57,6 +57,18 @@
 
   i18n.defaultLocale = "en_US.UTF-8";
 
+
+
+  fonts = {
+    enableDefaultFonts = true;
+
+    fonts = with pkgs; [
+      hack-font
+      noto-fonts-emoji
+    ];
+  };
+
+
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.

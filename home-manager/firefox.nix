@@ -1,6 +1,6 @@
 { config, pkgs, inputs, ... }:
 let
-  profileName = "personal";
+  profileName = "knoff";
   profileApperenceName = "Personal";
   firefoxPath = ".mozilla/firefox";
   profilePath = "${firefoxPath}/${profileName}";
@@ -224,6 +224,7 @@ in
 
 
         # Theme Default Settings
+	"layout.css.devPixelsPerPx" = "1.3"; # UI shrink
         "userChrome.compatibility.theme" = true;
         "userChrome.compatibility.os" = true;
         "userChrome.theme.built_in_contrast" = true;

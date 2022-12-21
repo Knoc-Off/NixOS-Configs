@@ -1,15 +1,5 @@
 { pkgs, ... }:
 {
-  fonts = {
-    enableDefaultFonts = true;
-
-    fonts = with pkgs; [
-      hack-font
-      noto-fonts-emoji
-    ];
-  };
-
-  fonts.fontconfig.defaultFonts.monospace = [ "hack" ];
 
     home.packages = with pkgs; [
       wl-clipboard
@@ -115,7 +105,7 @@
             family = "Hack";
             style = "regular";
           };
-          size = 15.00;
+          size = 8.30;
         };
         shell = {
           program = "/usr/bin/env";
