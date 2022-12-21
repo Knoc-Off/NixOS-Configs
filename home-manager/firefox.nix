@@ -360,11 +360,11 @@ in
       # Quality of life
       darkreader
       sponsorblock
-      enhancer-for-youtube
+      #enhancer-for-youtube
       augmented-steam
       consent-o-matic
       enhanced-github
-      flagfox
+      #flagfox
       i-dont-care-about-cookies
       lovely-forks
       nighttab
