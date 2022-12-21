@@ -45,7 +45,17 @@ in
 
           #sidebar-header {
             display: none;
+          
+	  }
+	  #sidebar-box{
+            --sidebar-width: 48px;
+            --sidebar-hover-width: calc(calc(calc(var(--sidebar-width) - 0.65em) * 8) + 0.65em);
+            /* If you want to adjust sidebar-hover-width, change the default number multiplied here (which is 6 - follows the number of icon-only pinned tabs) */
+            --autohide-sidebar-delay: 100ms; /* Delay before hiding the sidebar */
           }
+
+
+
         '';
 
 
