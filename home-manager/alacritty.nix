@@ -105,7 +105,7 @@
             family = "Hack";
             style = "regular";
           };
-          size = 8.30;
+          size = 15.00;
         };
         shell = {
           program = "/usr/bin/env";

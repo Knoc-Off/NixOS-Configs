@@ -44,6 +44,9 @@
   programs.neovim.enable = true;
   home.packages = with pkgs; [ trilium-desktop ];
 
+  programs.direnv.enable = true;
+  programs.direnv.nix-direnv.enable = true;
+
   # Enable home-manager and git
   programs.home-manager.enable = true;
   programs.git.enable = true;
