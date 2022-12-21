@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
     home.packages = with pkgs; [
-      unstable.chroma # Required for colorize...
+      chroma # Required for colorize...
       imagemagick # Required for catomg
       thefuck # If you forget sudo or something
       qrencode

@@ -8,6 +8,7 @@
     # You can also split up your configuration and import pieces of it here:
     ./neovim.nix
     ./zsh.nix
+    ./alacritty.nix
     ./firefox.nix
   ];
 
@@ -41,7 +42,7 @@
 
   # Add stuff for your user as you see fit:
   programs.neovim.enable = true;
-  home.packages = with pkgs; [ xorg.xf86inputsynaptics ];
+  home.packages = with pkgs; [ trilium-desktop ];
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
