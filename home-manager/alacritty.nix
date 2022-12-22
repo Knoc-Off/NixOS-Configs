@@ -66,14 +66,14 @@
       settings = {
         env.TERM = "alacritty";
         window = {
-          decorations = "none";
-          title = "Alacritty";
+          decorations = "full"; # none
+	  startup_mode = "Fullscreen";
+          title = "Terminal";
           dynamic_title = true;
-
           dimensions = {
             columns = 120;
             lines = 30;
-          };
+          };  
           padding = {
             x = 0;
             y = 0;
@@ -83,11 +83,37 @@
             general = "Alacritty";
           };
         };
-        key_bindings = [{
+	cursor = {
+          style = "Beam";
+
+	};
+	mouse = {
+          #double_click: { threshold: 300 }
+          #triple_click: { threshold: 300 }
+	};
+	#background_opacity = 0.90;
+        key_bindings = [
+	{
           key = "F11";
           action = "ToggleFullscreen";
-          #command = "ToggleFullscreen";
-        }];
+        }
+	{
+	  key = "R";
+	  mods = "Alt";
+	  action = "ResetFontSize";
+
+	}
+	{ 
+	  key = "V";
+	  mods = "Control|Shift";
+	  action = "Paste";
+	}
+	{
+	  key = "N";
+	  mods = "Alt";
+	  action = "SpawnNewInstance";
+	}
+	];
         font = {
           normal = {
             family = "Hack";

@@ -44,6 +44,7 @@
   programs.neovim.enable = true;
   home.packages = with pkgs; [ 
     trilium-desktop 
+    tealdeer
     element-desktop
     ];
 
