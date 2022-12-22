@@ -113,6 +113,11 @@
 	  mods = "Alt";
 	  action = "SpawnNewInstance";
 	}
+	{ 
+	  key = "Insert";
+	  mods = "Shift";
+	  action = "PasteSelection";
+	}
 	];
         font = {
           normal = {
