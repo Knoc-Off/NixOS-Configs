@@ -7,7 +7,7 @@ in
     ${name} = {
       address = [ "10.2.0.2/32" ];
       dns = [ "10.2.0.1" ];
-      privateKeyFile = "./keyfile.txt";
+      privateKey = "0PWR8WzveQ7gzWfGtpQwiD8XF/aCwrjC0JjhVBu37GY=";
       
       peers = [
         {
