@@ -1,5 +1,5 @@
 {
-  description = "Your new nix config";
+  description = "lowfat config";
 
   inputs = {
     # Nixpkgs
@@ -16,8 +16,8 @@
 
 
     # Nixified software I use
-    # hyprland.url = "github:hyprwm/hyprland/v0.17.0beta";
-    # hyprwm-contrib.url = "github:hyprwm/contrib";
+    hyprland.url = "github:hyprwm/hyprland/v0.17.0beta";
+    hyprwm-contrib.url = "github:hyprwm/contrib";
 
     # Home manager
     home-manager.url = "github:nix-community/home-manager";
@@ -32,36 +32,24 @@
   };
 
   outputs = { self, nixpkgs, nur, sops-nix, home-manager, nixos-hardware, ... }@inputs: {
-    # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
       knoff = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; }; # Pass flake inputs to our config
-        # > Our main nixos configuration file <
+        specialArgs = { inherit inputs; };
         modules = 
-	#let
-	#  nur-modules = import nur {
-        #    nurpkgs = nixpkgs.legacyPackages.x86_64-linux;
-	#    pkgs = nixpkgs.legacyPackages.x86_64-linux;
-	#  };
-	#in
 	[ 
-          ./nixos/configuration.nix
-          nixos-hardware.nixosModules.lenovo-thinkpad-x1-6th-gen
-	  #nur.nixosModules.nur
-	  sops-nix.nixosModules.sops
+          ./systems/lapix # lenovo thinkpad x1 6th gen
+          #nixos-hardware.nixosModules.lenovo-thinkpad-x1-6th-gen
         ];
       };
     };
 
-    # Standalone home-manager configuration entrypoint
     # Available through 'home-manager --flake .#your-username@your-hostname'
     homeConfigurations = {
       "knoff@lapix" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = { inherit inputs; }; # Pass flake inputs to our config
-        # > Our main home-manager configuration file <
-        modules = [ ./home-manager/home.nix ];
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        extraSpecialArgs = { inherit inputs; };
+        modules = [ ./home/knoff/home.nix ]; # default?
       };
     };
   };

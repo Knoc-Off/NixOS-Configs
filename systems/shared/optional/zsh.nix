@@ -1,8 +1,7 @@
 { pkgs, ... }:
 {
-  home-manager.users.niko = { pkgs, ... }: {
     home.packages = with pkgs; [
-      unstable.chroma # Required for colorize...
+      chroma # Required for colorize...
       imagemagick # Required for catomg
       thefuck # If you forget sudo or something
       qrencode
@@ -32,7 +31,6 @@
         remove = "rm";
         tmux = "TERM=screen-256color tmux";
       };
-      initExtra = __readFile ../configs/zshrc.sh; 
+      initExtra = __readFile ./configs/zshrc.sh; 
     };
-  };
 }

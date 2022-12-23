@@ -4,31 +4,19 @@
 { inputs, lib, config, pkgs, ... }: {
   # You can import other NixOS modules here
   imports = [
-    # If you want to use modules from other flakes (such as nixos-hardware):
-    # inputs.hardware.nixosModules.common-cpu-amd
-    # inputs.hardware.nixosModules.common-ssd
 
-    # You can also split up your configuration and import pieces of it here:
-    # ./users.nix
+    #./common/optional/greetd.nix
 
-    ./wireguard/wg-DE-SC.nix
+    ./wireguard/default.nix
+     
+    # settings required to boot
     ./boot.nix
-    # Import your generated (nixos-generate-config) hardware configuration
+
     ./hardware-configuration.nix
   ];
 
   nixpkgs = {
-    # You can add overlays here
     overlays = [
-      # If you want to use overlays exported from other flakes:
-      # neovim-nightly-overlay.overlays.default
-
-      # Or define it inline, for example:
-      # (final: prev: {
-      #   hi = final.hello.overrideAttrs (oldAttrs: {
-      #     patches = [ ./change-hello-to-hi.patch ];
-      #   });
-      # })
     ];
     config = {
       allowUnfree = true;
@@ -52,12 +40,8 @@
     };
   };
 
-  # Add the rest of your current configuration
   time.timeZone = "Europe/Berlin";
-
   i18n.defaultLocale = "en_US.UTF-8";
-
-
 
   fonts = {
     enableDefaultFonts = true;
@@ -67,7 +51,6 @@
       noto-fonts-emoji
     ];
   };
-
 
   services.xserver.enable = true;
 
