@@ -1,4 +1,4 @@
-{ inputs, lib, config, pkgs, ... }: {
+{ inputs, ... }: {
   imports = [
 
     ./wireguard/default.nix
