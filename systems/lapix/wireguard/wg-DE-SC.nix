@@ -8,7 +8,7 @@ in
       address = [ "10.2.0.2/32" ];
       dns = [ "10.2.0.1" ];
       privateKey = "0PWR8WzveQ7gzWfGtpQwiD8XF/aCwrjC0JjhVBu37GY=";
-      
+      mtu = 1200;
       peers = [
         {
           publicKey = "9xUSjs4KYUv0ySbhrYjwN/49TpHfmIcI/2KdGkOEGz0=";
