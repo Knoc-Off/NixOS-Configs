@@ -6,10 +6,11 @@
     # If you want to use home-manager modules from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModule
     # You can also split up your configuration and import pieces of it here:
-    ./neovim.nix
-    ./zsh.nix
-    ./alacritty.nix
-    ./firefox.nix
+
+    ./programs/neovim.nix
+    ./programs/zsh.nix
+    ./programs/alacritty.nix
+    ./programs/firefox.nix
   ];
 
   nixpkgs = {

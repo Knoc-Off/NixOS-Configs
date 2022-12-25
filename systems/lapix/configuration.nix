@@ -4,6 +4,7 @@
 { inputs, lib, config, pkgs, ... }: {
   # You can import other NixOS modules here
   imports = [
+    inputs.hardware.nixosModules.lenovo-thinkpad-x1-6th-gen
 
     #./common/optional/greetd.nix
 
