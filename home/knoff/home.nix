@@ -11,6 +11,7 @@
     ./programs/zsh.nix
     ./programs/alacritty.nix
     ./programs/firefox.nix
+    ./programs/ssh.nix
   ];
 
   nixpkgs = {

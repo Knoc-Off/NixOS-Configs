@@ -1,10 +1,10 @@
 { pkgs, ... }:
 {
-    programs.neovim = {
-      enable = true;
-      vimAlias = true;
-      viAlias = true;
-      extraConfig =
+  programs.neovim = {
+    enable = true;
+    vimAlias = true;
+    viAlias = true;
+    extraConfig =
       ''
         set autoindent
         set expandtab
@@ -12,26 +12,25 @@
         set shiftwidth=2
         set undofile
       '';
-      #plugins = with pkgs.vimPlugins; [
-      plugins = with pkgs.vimPlugins; [
-        direnv-vim # For .direnv + nixshell
-        yankring
-        vim-nix
-        nvim-treesitter
-        #nvim-lspconfig
-        nvim-cmp
-        fzf-vim
-        fzfWrapper
-        haskell-vim
-        vim-lua
-        rust-vim
+    plugins = with pkgs.vimPlugins; [
+      direnv-vim # For .direnv + nixshell
+      yankring
+      vim-nix
+      nvim-treesitter
+      nvim-cmp
+      fzf-vim
+      fzfWrapper
+      haskell-vim
+      vim-lua
+      rust-vim
 
-        nvim-cmp
+      nvim-cmp
 
-        vim-markdown
-        vim-json
-        neoformat
-        #vim-lsp
-      ];
-    };
+      vim-markdown
+      vim-json
+      neoformat
+      #vim-lsp
+      #nvim-lspconfig
+    ];
+  };
 }
